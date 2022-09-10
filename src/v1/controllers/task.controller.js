@@ -221,7 +221,18 @@ module.exports = {
     addReport: async (req, res, next) => {
         try {
             const userId = req.user.id;
-            const { taskId, content, attach } = req.body;
+            const { taskId, content } = req.body;
+            if (req.fileValidationError) {
+                return res.status(400).json({
+                    code: 400,
+                    msg: req.fileValidationError,
+                    data: null,
+                });
+            }
+            let attach = '';
+            if (req.file) {
+                attach = 'upload/' + req.file.filename;
+            }
             const err = validationAddReport({ taskId, content, attach });
             if (!err) {
                 const isAddReport = await addReport({

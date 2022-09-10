@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { checkLogin } = require('../middleware/auth.middleware');
+const upload = require('../middleware/upload.middleware');
 const {
     create,
     edit,
@@ -20,7 +21,7 @@ router.put('/addWorker', checkLogin, addWorker);
 router.put('/removeWorker', checkLogin, removeWorker);
 router.get('/getByProject', checkLogin, getByProject);
 router.get('/getById', checkLogin, getById);
-router.put('/addReport', checkLogin, addReport);
+router.put('/addReport', checkLogin, upload.single('attach'), addReport);
 router.get('/getAllReport', checkLogin, getAllReport);
 
 module.exports = router;
