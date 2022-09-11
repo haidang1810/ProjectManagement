@@ -200,7 +200,7 @@ module.exports = {
         const projectId = req.query.projectId;
         return res.status(200).json({
             code: 200,
-            msg: 'success',
+            msg: 'Thành công',
             data: await getByProject({ projectId }),
         });
     },
@@ -214,7 +214,7 @@ module.exports = {
             });
         return res.status(200).json({
             code: 200,
-            msg: 'success',
+            msg: 'Thành công',
             data: await getById({ taskId }),
         });
     },

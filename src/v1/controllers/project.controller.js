@@ -30,7 +30,7 @@ module.exports = {
             const createBy = req.user.id;
             return res.status(200).json({
                 code: 201,
-                msg: 'success',
+                msg: 'Thành công.',
                 data: await create({ createBy, name, description, deadline }),
             });
         } catch (error) {
@@ -43,14 +43,14 @@ module.exports = {
         if (!name) {
             return res.status(200).json({
                 code: 400,
-                msg: 'Chưa nhập tên dự án',
+                msg: 'Chưa nhập tên dự án.',
                 data: null,
             });
         }
         if (!deadline) {
             return res.status(200).json({
                 code: 400,
-                msg: 'Chưa nhập thời gian dự kiến',
+                msg: 'Chưa nhập thời gian dự kiến.',
                 data: null,
             });
         }
@@ -137,7 +137,7 @@ module.exports = {
             let userId = req.user.id;
             return res.status(200).json({
                 code: 200,
-                msg: 'success.',
+                msg: 'Thành công.',
                 data: await getByUser({ userId }),
             });
         } catch (error) {
@@ -149,7 +149,7 @@ module.exports = {
         const id = req.query.id;
         return res.status(200).json({
             code: 200,
-            msg: 'success.',
+            msg: 'Thành công.',
             data: await getById({ userId, id }),
         });
     },

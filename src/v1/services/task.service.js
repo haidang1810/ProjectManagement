@@ -44,7 +44,7 @@ module.exports = {
                 );
                 return {
                     code: 201,
-                    msg: 'success',
+                    msg: 'Thành công',
                     data: await Task.create({
                         name,
                         description,
@@ -76,7 +76,7 @@ module.exports = {
                 );
                 return {
                     code: 200,
-                    msg: 'success.',
+                    msg: 'Thành công.',
                     data: await Task.findOneAndUpdate(
                         { taskId },
                         {
@@ -107,7 +107,7 @@ module.exports = {
             if (await checkManager(task.projectId, executor)) {
                 return {
                     code: 200,
-                    msg: 'success',
+                    msg: 'Thành công',
                     data: await Task.deleteOne({ taskId }),
                 };
             } else {
@@ -158,7 +158,7 @@ module.exports = {
         }
         return {
             code: 200,
-            msg: 'success',
+            msg: 'Thành công',
             data: await Task.findOneAndUpdate(
                 { taskId },
                 { $push: { workers: userId } },
@@ -184,7 +184,7 @@ module.exports = {
         if (await checkManager(task.projectId, executor)) {
             return {
                 code: 200,
-                msg: 'success',
+                msg: 'Thành công',
                 data: await Task.findOneAndUpdate(
                     { taskId },
                     { $pull: { workers: userId } },
@@ -216,7 +216,7 @@ module.exports = {
             };
             return {
                 code: 200,
-                msg: 'success.',
+                msg: 'Thành công.',
                 data: await Task.findOneAndUpdate(
                     { taskId },
                     {
@@ -246,7 +246,7 @@ module.exports = {
         } else {
             return {
                 code: 200,
-                msg: 'success.',
+                msg: 'Thành công.',
                 data: task.reports,
             };
         }

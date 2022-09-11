@@ -27,7 +27,7 @@ module.exports = {
                 });
                 return res.status(200).json({
                     status: 1,
-                    msg: 'success',
+                    msg: 'Thành công',
                     data: createUser.data,
                 });
             }
@@ -49,7 +49,7 @@ module.exports = {
             });
             return res.status(200).json({
                 status: 1,
-                msg: 'success',
+                msg: 'Thành công',
                 accessToken: isLogin.data.accessToken,
                 refreshToken: isLogin.data.refreshToken,
             });

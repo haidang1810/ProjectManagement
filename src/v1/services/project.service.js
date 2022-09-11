@@ -43,7 +43,7 @@ module.exports = {
             const deadlineTimeFormat = formatDate(deadlineTime, 'dd/mm/yyyy');
             return {
                 code: 200,
-                msg: 'success',
+                msg: 'Thành công',
                 data: await Project.findOneAndUpdate(
                     { _id: id },
                     { name, description, deadline: deadlineTimeFormat },
@@ -72,7 +72,7 @@ module.exports = {
             if (tasks.length <= 0) {
                 return {
                     code: 200,
-                    msg: 'success',
+                    msg: 'Thành công',
                     data: await Project.deleteOne({ _id: id }),
                 };
             } else {
@@ -114,7 +114,7 @@ module.exports = {
             };
             return {
                 code: 200,
-                msg: 'success.',
+                msg: 'Thành công.',
                 data: await Project.findOneAndUpdate(
                     { _id: projectId },
                     { $push: { members: member } },
@@ -148,7 +148,7 @@ module.exports = {
         if (checkManager(projectId, executor)) {
             return {
                 code: 200,
-                msg: 'success',
+                msg: 'Thành công',
                 data: await Project.findOneAndUpdate(
                     { _id: projectId },
                     { $pull: { members: { userId: userId } } },
@@ -170,7 +170,7 @@ module.exports = {
         if (checkManager(id, userId)) {
             return {
                 code: 200,
-                msg: 'success.',
+                msg: 'Thành công.',
                 data: await Project.findOne({ _id: id }),
             };
         } else {
