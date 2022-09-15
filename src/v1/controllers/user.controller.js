@@ -13,7 +13,7 @@ module.exports = {
             const { email, password, fullName } = req.body;
             if (password.length < 4) {
                 return res.status(200).json({
-                    status: 0,
+                    code: 0,
                     msg: 'Password phải ít nhất 4 ký tự.',
                 });
             }
